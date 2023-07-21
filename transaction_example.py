@@ -23,10 +23,9 @@ def book_car(db, client_name, model_car, start_date, booking_duration):
         return
 
     start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d")
-
     existing_booking = db.bookings.find_one({'name': client_name, 'model': model_car, 'start_date': start_date})
     if existing_booking:
-        print("Вы уже забронировали автомобиль")
+        print("Вы уже забронировали на данное число автомобиль")
         return
 
     end_date = start_date + timedelta(days=booking_duration)
@@ -49,7 +48,7 @@ def book_car(db, client_name, model_car, start_date, booking_duration):
 if __name__ == '__main__':
     client_name = 'Hailey Martinez'
     model_car = 'Camry'
-    start_date = '2023-07-16'
+    start_date = '2023-07-15'
     booking_duration = 2
 
     input_booking = book_car(db, client_name, model_car, start_date, booking_duration)

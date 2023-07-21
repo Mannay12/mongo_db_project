@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 from main import *
 
 client = MongoClient('mongodb://localhost:27017/')
@@ -8,8 +7,8 @@ clients_collection = db['clients']
 bookings_collection = db['bookings']
 
 if __name__ == '__main__':
-    # Все автомобили из коллекции.
-    all_cars(cars_collection)
+    # # Все автомобили из коллекции.
+    # all_cars(cars_collection)
 
     # # Все клиенты из коллекции.
     # all_clients(clients_collection)
@@ -18,7 +17,7 @@ if __name__ == '__main__':
     # all_bookings(bookings_collection)
 
     # # Удаление бронирования автомобиля клиентом.
-    # delete_booking(bookings_collection, cars_collection, 'Hailey Martinez', 'Camry')
+    # delete_booking(bookings_collection, cars_collection, 'Hailey Martinez', 'Camry', '2023-07-15')
 
     # # Подсчет общего количества автомобилей в наличии.
     # count_cars(cars_collection)

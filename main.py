@@ -126,15 +126,16 @@ def all_bookings(collection):
         print(result)
 
 
-def delete_booking(collection, collection_cars, name: str, model: str):
+def delete_booking(collection, collection_cars, name: str, model: str, start_date: str):
     # Удаление бронирования автомобиля клиентом.
-    booking = collection.find_one({'name': name, 'model': model})
+    start_date_obj = datetime.datetime.strptime(start_date, "%Y-%m-%d")
+    booking = collection.find_one({'name': name, 'model': model, 'start_date': start_date_obj})
     if booking:
-        collection.delete_one({'name': name, 'model': model})
+        collection.delete_one({'name': name, 'model': model, 'start_date': start_date_obj})
         collection_cars.update_one({'model': model}, {'$inc': {'quantity': 1}})
-        print(f'Бронирование автомобиля {model} клиентом {name} было удалено!')
+        print(f'Бронирование автомобиля {model} {start_date} клиентом {name} было удалено!')
     else:
-        print(f'Не найдено бронирования для автомобиля {model} по запросу клиента {name}!')
+        print(f'Не найдено бронирования для автомобиля {model} {start_date} по запросу клиента {name}!')
 
 
 def count_cars(collection):
