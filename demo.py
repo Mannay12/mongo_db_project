@@ -16,18 +16,11 @@ if __name__ == '__main__':
     # # Все бронирования автомобилей из коллекции.
     # all_bookings(bookings_collection)
 
-    # # Удаление бронирования автомобиля клиентом.
-    # delete_booking(bookings_collection, cars_collection, 'Hailey Martinez', 'Camry', '2023-07-15')
-
     # # Подсчет общего количества автомобилей в наличии.
     # count_cars(cars_collection)
 
-    # # Обновление модели указанного автомобиля.
-    # update_cars_model(cars_collection, 'X5', 'M5')
-
-    # # Проверка обновленной модели автомобиля
-    # update_car = cars_collection.find_one({'model': 'M5'})
-    # print(update_car)
+    # # Удаление бронирования автомобиля клиентом.
+    # delete_booking(bookings_collection, cars_collection, 'Hailey Martinez', 'Camry', '2023-07-15')
 
     # # Обновление имени указанного клиента.
     # update_client_name(clients_collection, 'Nicholas Bartlett', 'Иванов Иван')
@@ -40,7 +33,7 @@ if __name__ == '__main__':
     # cars_with_body_type = find_by_body_type(cars_collection, ['sedan'])
     # print(cars_with_body_type)
 
-    # # Поиск автомобилей указанной цены.
+    # Поиск автомобилей указанной цены.
     # cars_50_price = find_by_price(cars_collection, 40)
     # print(cars_50_price)
 

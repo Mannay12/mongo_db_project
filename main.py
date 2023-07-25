@@ -2,7 +2,6 @@ from pymongo import MongoClient
 from random import randint, choice
 from faker import Faker
 import datetime
-from datetime import timedelta
 
 fake = Faker()
 
@@ -11,6 +10,7 @@ db = client['car_booking']
 
 
 def check_db_and_collection(db_name: str, collection_name: str):
+    # Проверка наличия базы данных и коллекции. В случае их отсуствия - создает их
     if db_name in client.list_database_names():
         print(f'База данных {db_name} уже существует')
     else:
@@ -25,6 +25,7 @@ def check_db_and_collection(db_name: str, collection_name: str):
 
 
 def create_cars(collection):
+    # Создание коллекции автомобилей
     if collection.count_documents({}) == 0:
         collection.insert_one({
             'brand': 'Toyota',
@@ -55,6 +56,7 @@ def create_cars(collection):
 
 
 def create_clients(collection):
+    # Создание коллекции клиентов
     if collection.count_documents({}) == 0:
         collection.insert_one({
             'name': 'Hailey Martinez',
@@ -151,12 +153,6 @@ def update_client_name(collection, name: str, new_name: str):
     # Использование оператора $set для обновления имени указанного клиента.
     collection.update_one({'name': name}, {'$set': {'name': new_name}})
     print(f'Имя клиента {name} успешно обнавлен на {new_name}')
-
-
-def update_cars_model(collection, model: str, new_model: str):
-    # Использование оператора $set для обновления модели указанного автомобиля.
-    collection.update_one({'model': model}, {'$set': {'model': new_model}})
-    print(f'Имя клиента {model} успешно обнавлен на {new_model}')
 
 
 def find_by_body_type(collection, body_type: str):

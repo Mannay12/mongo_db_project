@@ -46,7 +46,7 @@ def book_car(db, client_name, model_car, start_date, booking_duration):
 
 
 if __name__ == '__main__':
-    client_name = 'Hailey Martinez'
+    client_name = 'Иванов Иван'
     model_car = 'Camry'
     start_date = '2023-07-15'
     booking_duration = 2
